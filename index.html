@@ -480,7 +480,7 @@ Collaborated inter-departmentally with different level executives  </p>
 			<section class="mailbox">
 				<div class="container">
 					<div class="col-sm-12">
-						<form name="sentMessage" id="contactForm" novalidate>
+						<form id="submit-form" action="" method="post">
 	                        <div class="row">
 	                            <div class="col-md-6">
 	                                <div class="form-group">
@@ -538,6 +538,26 @@ Collaborated inter-departmentally with different level executives  </p>
 	<script src="assets/js/wow.min.js"></script>
 	<script src="assets/js/owl.carousel.js"></script>
 	<script src="assets/js/script.js"></script>
+	 <script src="assets/js/main.js"></script>
+<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzi2QRDzYA88aGxH5hRuQb3ZzZ1i4YJAaHMNisZDPCCcTvmEXi2GaBREAogYfOYCwho/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 	
 </body>
 </html>
